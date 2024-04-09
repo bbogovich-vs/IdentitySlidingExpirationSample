@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<script>
+	document.addEventListener('readystatechange', (e) => {
+		if (e.target.readyState !== 'complete')
+			return;
+
+		window.setInterval(async () => {
+			let response = await fetch('/home/ping');
+
+			if (response.ok) {
+				console.log('auth ok');
+			}
+			else {
+				console.log('auth failed');
+			}
+		}, 60000)
+	})
+</script>
